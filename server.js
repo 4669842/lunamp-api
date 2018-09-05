@@ -49,22 +49,6 @@ app.get('/version', function(req, res){
 })
 
 
-app.get('/servers', function(req, res){ 
-request.get('http://dagger.ole32.com:8701/', function (error, response, body) {
-      res.send(body)
-    }).pipe(fs.createWriteStream('servers.json'));
-})
-
-app.get('/api', function(req, res){ 
-request.get('https://ci.appveyor.com/api/projects/gavazquez/lunamultiplayer/', function (error, response, body) {
-    var jsonContent = JSON.parse(body);
-  if (!error == null){
-      console.log('error:', error); // Print the error if one occurred and handle it
-  }console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-      res.send(jsonContent.build.jobs)
-    }).pipe(fs.createWriteStream('data.json'));
-})
-
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
