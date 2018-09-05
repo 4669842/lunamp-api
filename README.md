@@ -1,27 +1,20 @@
-Welcome to Glitch
+Welcome to Luna Multiplayer Endpoint
 =================
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
-
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
-
-Find out more [about Glitch](https://glitch.com/about).
+This endpoint provides server hosters a way to easily get the latest version of Luna Mutltiplayer instantly its released. 
 
 
-Your Project
+How it works
 ------------
 
-On the front-end,
-- edit `public/client.js`, `public/style.css` and `views/index.html`
-- drag in `assets`, like images or music, to add them to your project
+This service currently has two endpoints that provide useful functionality
+- Navigating to /update will get the latest version and job id from AppVeyor
+- /latest provides the link to the download where you can store the files.
 
-On the back-end,
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
+Why?
+- Mainly used for personal docker images but can be implimented in any script that supports http requests.
 
 
-Made by [Fog Creek](https://fogcreek.com/)
 -------------------
 
 \ ゜o゜)ノ
