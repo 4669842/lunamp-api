@@ -15,7 +15,7 @@ app.use(express.static('public'));
 app.get('/update', function(req, res){ 
   request.get('https://ci.appveyor.com/api/projects/gavazquez/lunamultiplayer/', function (error, response, body) {
     var jsonContent = JSON.parse(body);
-    res.send("Luna Endpoint is using version:"+jsonContent.build.version)
+    res.send("<head><link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous'></head><body><center><div class='jumbotron'><h1 class='display-4'>Your Download is Ready!</h1><p class='lead'><a href='\latest'><button type='button' class='btn btn-success'>Download Luna Multiplayer "+jsonContent.build.version+"</button></p></div></a></center></body>")
       if (!error == null){
       console.log('error:', error); // Print the error if one occurred and handle it
       }console.log(jsonContent.build.jobs)// Print the response status code if a response was received
@@ -48,6 +48,22 @@ app.get('/version', function(req, res){
   res.send(lunaVersion);
 })
 
+
+app.get('/servers', function(req, res){ 
+request.get('http://dagger.ole32.com:8701/', function (error, response, body) {
+      res.send(body)
+    }).pipe(fs.createWriteStream('servers.json'));
+})
+
+app.get('/api', function(req, res){ 
+request.get('https://ci.appveyor.com/api/projects/gavazquez/lunamultiplayer/', function (error, response, body) {
+    var jsonContent = JSON.parse(body);
+  if (!error == null){
+      console.log('error:', error); // Print the error if one occurred and handle it
+  }console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+      res.send(jsonContent.build.jobs)
+    }).pipe(fs.createWriteStream('data.json'));
+})
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
