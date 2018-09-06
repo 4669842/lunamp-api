@@ -1,14 +1,9 @@
-Welcome to Glitch
+Luna Endpoint
 =================
-
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
-
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
-
-Find out more [about Glitch](https://glitch.com/about).
+This endpoint simply pings AppVeyor for the latest job id's for Luna Multiplayer, when a user navigates to /update the cache is refreshed and the user is provided with the latest version of luna multiplayer.
 
 
-Your Project
+See it in action
 ------------
 
 On the front-end,
@@ -21,7 +16,7 @@ On the back-end,
 - safely store app secrets in `.env` (nobody can see this but you and people you invite)
 
 
-Made by [Fog Creek](https://fogcreek.com/)
+Click to see [LunaEndpoint](https://luna-endpoint.glitch.me/)
 -------------------
 
 \ ゜o゜)ノ
